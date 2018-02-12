@@ -7,6 +7,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>kroky-commons-swing-utils</module>
+        <module>kroky-commons-html-utils</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

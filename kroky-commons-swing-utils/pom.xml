@@ -7,8 +7,6 @@
         <artifactId>kroky-commons-parent</artifactId>
         <version>1.0</version>
     </parent>
-    <groupId>org.kroky</groupId>
     <artifactId>kroky-commons-swing-utils</artifactId>
-    <version>1.0</version>
     <name>kroky-commons-swing-utils</name>
 </project>

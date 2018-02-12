@@ -18,11 +18,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 -->
 <Configuration
     status="info"
-    name="org.kroky.commons.swing.utils"
-    packages="org.kroky.commons.swing.utils"
+    name="org.kroky.commons.html.utils"
+    packages="org.kroky.commons.html.utils"
     monitorInterval="30">
     <Properties>
-        <Property name="filename">org.kroky.commons.swing.utils</Property>
+        <Property name="filename">org.kroky.commons.html.utils</Property>
     </Properties>
     <Appenders>
         <Console name="STDOUT" target="SYSTEM_OUT">
