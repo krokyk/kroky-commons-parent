@@ -6,9 +6,12 @@
     <version>1.0</version>
     <packaging>pom</packaging>
     <modules>
-        <module>kroky-commons-swing-utils</module>
         <module>kroky-commons-html-utils</module>
         <module>kroky-commons-logging</module>
+        <module>kroky-commons-swing-tables</module>
+        <module>kroky-commons-swing-utils</module>
+        <module>kroky-commons-utils</module>
+        <module>kroky-commons-configuration</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
