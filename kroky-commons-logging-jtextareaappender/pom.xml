@@ -6,11 +6,13 @@
 		<artifactId>kroky-commons-parent</artifactId>
 		<version>1.0</version>
 	</parent>
-	<artifactId>kroky-commons-logging</artifactId>
+	<artifactId>kroky-commons-logging-jtextareaappender</artifactId>
+	<name>kroky-commons-logging-jtextareaappender</name>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<log4j.version>2.11.0</log4j.version>
 	</properties>
 	<dependencies>
 		<dependency>

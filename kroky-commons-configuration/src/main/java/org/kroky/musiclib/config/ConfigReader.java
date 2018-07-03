@@ -6,12 +6,12 @@ import java.io.FileOutputStream;
 import java.util.Properties;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class ConfigReader {
 
-    private static final Logger LOG = LogManager.getLogger();
+    private static final Logger LOG = LoggerFactory.getLogger(Config.class);
     private static final AtomicBoolean initialized = new AtomicBoolean(false);
 
     static void init(File... dirsToScan) {
@@ -35,7 +35,7 @@ class ConfigReader {
 
                     LOG.debug("Configuration initialized.");
                 } catch (Throwable e) {
-                    LOG.fatal("Unable to initialize Configuration!", e);
+                    LOG.error("Unable to initialize Configuration!", e);
                     throw new ConfigurationException("Unable to initialize Configuration!", e);
                 }
             }

@@ -6,4 +6,5 @@
     <version>1.0</version>
   </parent>
   <artifactId>kroky-commons-utils</artifactId>
+  <name>kroky-commons-utils</name>
 </project>

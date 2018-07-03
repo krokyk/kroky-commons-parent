@@ -13,17 +13,14 @@ import java.awt.Window;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.swing.ImageIcon;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 /**
  *
  * @author Kroky
  */
 public class SwingUtils {
-
-    private static final Logger LOG = LogManager.getLogger();
 
     private static final Map<String, ImageIcon> ICONS = new HashMap<>();
     private static final Map<String, Map<Dimension, ImageIcon>> SCALED_ICONS = new HashMap<>();
@@ -40,12 +37,14 @@ public class SwingUtils {
     }
 
     public static ImageIcon getIcon(String resourcePath, Dimension d) {
-        return SCALED_ICONS.computeIfAbsent(resourcePath, k -> new HashMap<>()).computeIfAbsent(d, k -> scaleIcon(getIcon(resourcePath), k));
+        return SCALED_ICONS.computeIfAbsent(resourcePath, k -> new HashMap<>()).computeIfAbsent(d,
+                k -> scaleIcon(getIcon(resourcePath), k));
     }
 
     private static ImageIcon scaleIcon(ImageIcon icon, Dimension d) {
         Image image = icon.getImage();
-        Image newimg = image.getScaledInstance(d.width, d.height, java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+        Image newimg = image.getScaledInstance(d.width, d.height, java.awt.Image.SCALE_SMOOTH); // scale it the smooth
+                                                                                                // way
         return new ImageIcon(newimg);
     }
 
@@ -59,22 +58,12 @@ public class SwingUtils {
 
     public static void centerOnParent(Component child) {
         Component parent = child.getParent();
-        //p = parent
-        //c = child
-        int pX = parent.getLocation().x;
-        int pY = parent.getLocation().y;
-
-        Dimension pSize = parent.getSize();
-        Dimension cSize = child.getSize();
-
-        int cX = pX + (pSize.width - cSize.width) / 2;
-        int cY = pY + (pSize.height - cSize.height) / 2;
-        child.setLocation(cX, cY);
+        centerOnComponent(child, parent);
     }
 
     public static void centerOnComponent(Component component, Component baseComponent) {
-        //b = base component
-        //c = component being centered
+        // b = base component
+        // c = component being centered
         int bX = baseComponent.getLocation().x;
         int bY = baseComponent.getLocation().y;
 
@@ -90,7 +79,8 @@ public class SwingUtils {
         if (component instanceof Window) {
             ((Window) component).setLocationRelativeTo(null);
         } else {
-            throw new UnsupportedOperationException("Unable to center " + component + " because it's not an instance of java.awt.Window");
+            throw new UnsupportedOperationException(
+                    "Unable to center " + component + " because it's not an instance of java.awt.Window");
         }
     }
 }

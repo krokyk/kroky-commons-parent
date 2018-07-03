@@ -6,8 +6,8 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -15,7 +15,7 @@ import org.apache.logging.log4j.Logger;
  */
 public class HtmlUtils {
 
-    private static final Logger LOG = LogManager.getLogger();
+    private static final Logger LOG = LoggerFactory.getLogger(HtmlUtils.class);
 
     private static final int URL_READ_MAX_ATTEMPTS = 3;
     private static final Map<String, String> HTML_TEXTS = new HashMap<>();
@@ -26,7 +26,6 @@ public class HtmlUtils {
      *
      * @param url
      * @return
-     * @throws Exception
      */
     public static String getHtmlFromUrl(final String url) {
         return getHtmlFromUrl(url, false);
@@ -37,10 +36,8 @@ public class HtmlUtils {
      *
      * @param url
      * @param cached
-     *            if true, attempts to retrieve data from cache, if not found goes
-     *            to web
+     *            if true, attempts to retrieve data from cache, if not found goes to web
      * @return
-     * @throws Exception
      */
     public static String getHtmlFromUrl(final String url, final boolean cached) {
         InputStreamReader isr = null;
@@ -101,7 +98,6 @@ public class HtmlUtils {
      *
      * @param url
      * @return
-     * @throws Exception
      */
     public static String getTextFromUrl(final String url) {
         return getTextFromUrl(url, false);
@@ -112,10 +108,8 @@ public class HtmlUtils {
      *
      * @param url
      * @param cached
-     *            if true, attempts to retrieve data from cache, if not found goes
-     *            to web
+     *            if true, attempts to retrieve data from cache, if not found goes to web
      * @return
-     * @throws Exception
      */
     public static String getTextFromUrl(final String url, final boolean cached) {
         if (cached && HTML_TEXTS.containsKey(url)) {
